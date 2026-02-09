@@ -1,17 +1,11 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
   const [name, setName] = useState('');
-  const [greeting, setGreeting] = useState('');
 
-  
-    useEffect(() => {
-      if(name){
-        setGreeting(`Hello, ${name}!`);
-      }
-    }, [name]);
+
   
   return (
     <div>
@@ -19,7 +13,7 @@ const App = () => {
       <h1>Enter your name:</h1>
       <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
 
-      {greeting}
+      { name && <p>Hello, {name}!</p> }
     </div>
   )
 }
